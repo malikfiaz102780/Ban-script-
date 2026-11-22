@@ -136,7 +136,6 @@
       gap: 16px;
     }
 
-    /* Header matching Red & Blue Edition */
     header {
       background: linear-gradient(90deg, rgba(255, 42, 95, 0.22), rgba(10, 14, 28, 0.88), rgba(0, 180, 255, 0.24));
       border: 1px solid var(--border);
@@ -177,6 +176,12 @@
       background: linear-gradient(90deg, #ff5c8a, #ffd60a, #00f5d4, #4cc9f0);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    .sub-brand {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 2px;
     }
 
     .edition-tag {
@@ -236,7 +241,6 @@
       border-color: var(--cyan);
     }
 
-    /* 44 Scripts Grid */
     .scripts-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
@@ -384,17 +388,17 @@
       min-height: 20px;
     }
 
-    /* WhatsApp Channel Banner */
+    /* WhatsApp Channel & Contact Banner */
     .wa-banner {
-      background: linear-gradient(90deg, rgba(0, 230, 118, 0.16), rgba(10, 14, 28, 0.9), rgba(0, 180, 255, 0.18));
-      border: 1px solid rgba(0, 230, 118, 0.35);
+      background: linear-gradient(90deg, rgba(0, 230, 118, 0.18), rgba(10, 14, 28, 0.9), rgba(0, 180, 255, 0.18));
+      border: 1px solid rgba(0, 230, 118, 0.38);
       border-radius: 16px;
       padding: 16px 20px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
       backdrop-filter: blur(12px);
     }
 
@@ -402,34 +406,63 @@
       display: block;
       font-size: 1rem;
       color: #fff;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
 
     .wa-text span {
+      display: block;
       font-size: 0.85rem;
       color: var(--muted);
     }
 
+    .wa-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     .wa-btn {
       text-decoration: none;
-      padding: 10px 16px;
+      padding: 10px 15px;
       border-radius: 10px;
       font-weight: 800;
-      font-size: 0.86rem;
+      font-size: 0.84rem;
       background: var(--green);
       color: #05160c;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .wa-contact-btn {
+      text-decoration: none;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.84rem;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      color: #041018;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
     }
 
     footer {
       text-align: center;
-      padding: 12px;
-      font-size: 0.82rem;
+      padding: 14px;
+      font-size: 0.83rem;
       font-weight: 700;
-      letter-spacing: 0.8px;
+      letter-spacing: 0.6px;
       color: var(--muted);
-      background: rgba(8, 12, 24, 0.82);
+      background: rgba(8, 12, 24, 0.84);
       border: 1px solid var(--border);
       border-radius: 14px;
+      line-height: 1.6;
+    }
+
+    footer a {
+      color: var(--cyan);
+      text-decoration: none;
     }
   </style>
 </head>
@@ -446,7 +479,10 @@
     <header>
       <div class="brand-box">
         <div class="logo-badge">MF</div>
-        <h1>MALIK FIAZ ALL SCRIPTS</h1>
+        <div>
+          <h1>MALIK FIAZ ALL SCRIPTS</h1>
+          <div class="sub-brand">𝑫𝑨𝑹𝑲 𝑯𝑨𝑪𝑲𝑬𝑹 ☠️ 🦋✨ • WhatsApp: +249 11 373 7772</div>
+        </div>
       </div>
       <div class="edition-tag">SCRIPT LIBRARY • RED &amp; BLUE EDITION</div>
     </header>
@@ -497,15 +533,21 @@
       <div id="statusMsg" class="status"></div>
     </section>
 
-    <section class="wa-banner" aria-label="WhatsApp channel invitation">
+    <section class="wa-banner" aria-label="WhatsApp channel and contact">
       <div class="wa-text">
-        <strong>JOIN OUR WHATSAPP CHANNEL</strong>
-        <span>Follow our channel for more scripts, updates and new releases by Malik Fiaz.</span>
+        <strong>Follow the 𝑫𝑨𝑹𝑲 𝑯𝑨𝑪𝑲𝑬𝑹 ☠️ 🦋✨ Channel on WhatsApp</strong>
+        <span>Official Updates by Malik Fiaz • WhatsApp Contact: +249 11 373 7772</span>
       </div>
-      <a class="wa-btn" href="https://whatsapp.com/channel/0029VbALM7n6xCSTtuXdmb3O" rel="noopener noreferrer" target="_blank">FOLLOW CHANNEL</a>
+      <div class="wa-actions">
+        <a class="wa-btn" href="https://whatsapp.com/channel/0029VbDFAIv8vd1SmiyHe02l" rel="noopener noreferrer" target="_blank">FOLLOW CHANNEL</a>
+        <a class="wa-contact-btn" href="https://wa.me/249113737772" rel="noopener noreferrer" target="_blank">WHATSAPP: +249 11 373 7772</a>
+      </div>
     </section>
 
-    <footer>DEVELOPED BY MALIK FIAZ</footer>
+    <footer>
+      <div>DEVELOPED BY MALIK FIAZ • 𝑫𝑨𝑹𝑲 𝑯𝑨𝑪𝑲𝑬𝑹 ☠️ 🦋✨</div>
+      <div>WhatsApp Contact: <a href="https://wa.me/249113737772" target="_blank" rel="noopener noreferrer">+249 11 373 7772</a> | Channel: <a href="https://whatsapp.com/channel/0029VbDFAIv8vd1SmiyHe02l" target="_blank" rel="noopener noreferrer">Join Official Channel</a></div>
+    </footer>
   </div>
 
   <script>
@@ -573,6 +615,8 @@
       const target = targetVal.trim() || "[Paste Target Link / Number / Username]";
       const scriptCode =
 `[MALIK FIAZ SCRIPT MODULE: ${slug}]
+Brand: 𝑫𝑨𝑹𝑲 𝑯𝑨𝑪𝑲𝑬𝑹 ☠️ 🦋✨
+Contact: +249 11 373 7772
 Mode: Link / Account Banning & Report Process
 Target: ${target}
 Steps:
@@ -589,7 +633,8 @@ Target: ${target}
 Module: ${slug}
 Details: Please review the target for policy/terms violations and take appropriate action.
 
-Submitted by: Malik Fiaz`;
+Submitted by: Malik Fiaz
+Contact: +249 11 373 7772`;
 
       return { scriptCode, emailBody };
     }
