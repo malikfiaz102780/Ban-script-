@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MALIK FIAZ ALL SCRIPTS — SCRIPT LIBRARY • RED &amp; BLUE EDITION</title>
+  <style>
+    :root {
+      --card: rgba(10, 14, 28, 0.78);
+      --card-solid: rgba(13, 18, 36, 0.92);
+      --border: rgba(255, 255, 255, 0.16);
+      --red: #ff2a5f;
+      --blue: #00b4ff;
+      --cyan: #00f5d4;
+      --yellow: #ffd60a;
+      --purple: #9b5de5;
+      --green: #00e676;
+      --text: #f5f8ff;
+      --muted: #b3bedb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      color: var(--text);
+      background: #060813;
+      overflow-x: hidden;
+      position: relative;
+      padding: 18px;
+    }
+
+    /* Animated Multi-Color Background Orbs + Shifting Gradient */
+    .bg-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      background: radial-gradient(circle at 20% 20%, rgba(255, 42, 95, 0.22), transparent 45%),
+                  radial-gradient(circle at 80% 25%, rgba(0, 180, 255, 0.24), transparent 45%),
+                  radial-gradient(circle at 50% 85%, rgba(155, 93, 229, 0.22), transparent 50%),
+                  #060813;
+      animation: hueShift 16s linear infinite;
+    }
+
+    @keyframes hueShift {
+      0% { filter: hue-rotate(0deg); }
+      50% { filter: hue-rotate(180deg); }
+      100% { filter: hue-rotate(360deg); }
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: 0.65;
+      pointer-events: none;
+    }
+
+    .orb-1 {
+      width: 320px;
+      height: 320px;
+      background: var(--red);
+      top: -60px;
+      left: -50px;
+      animation: roam1 14s ease-in-out infinite alternate;
+    }
+
+    .orb-2 {
+      width: 360px;
+      height: 360px;
+      background: var(--blue);
+      top: 15%;
+      right: -80px;
+      animation: roam2 17s ease-in-out infinite alternate;
+    }
+
+    .orb-3 {
+      width: 300px;
+      height: 300px;
+      background: var(--yellow);
+      bottom: -70px;
+      left: 18%;
+      animation: roam3 15s ease-in-out infinite alternate;
+    }
+
+    .orb-4 {
+      width: 340px;
+      height: 340px;
+      background: var(--purple);
+      bottom: 10%;
+      right: 12%;
+      animation: roam4 19s ease-in-out infinite alternate;
+    }
+
+    .orb-5 {
+      width: 260px;
+      height: 260px;
+      background: var(--cyan);
+      top: 48%;
+      left: 42%;
+      animation: roam5 13s ease-in-out infinite alternate;
+    }
+
+    @keyframes roam1 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(180px, 140px) scale(1.22); }
+    }
+    @keyframes roam2 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-200px, 160px) scale(0.9); }
+    }
+    @keyframes roam3 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(170px, -150px) scale(1.25); }
+    }
+    @keyframes roam4 {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-160px, -130px) scale(1.15); }
+    }
+    @keyframes roam5 {
+      0% { transform: translate(0, 0) scale(0.95); }
+      100% { transform: translate(-120px, 110px) scale(1.2); }
+    }
+
+    .wrapper {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Header matching Red & Blue Edition */
+    header {
+      background: linear-gradient(90deg, rgba(255, 42, 95, 0.22), rgba(10, 14, 28, 0.88), rgba(0, 180, 255, 0.24));
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .brand-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-badge {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 1.05rem;
+      background: linear-gradient(135deg, var(--red), var(--blue));
+      color: #fff;
+      box-shadow: 0 0 18px rgba(0, 180, 255, 0.45);
+    }
+
+    header h1 {
+      font-size: 1.35rem;
+      font-weight: 900;
+      letter-spacing: 0.5px;
+      background: linear-gradient(90deg, #ff5c8a, #ffd60a, #00f5d4, #4cc9f0);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .edition-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      color: #fff;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      backdrop-filter: blur(12px);
+    }
+
+    .top-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .counter-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, rgba(255, 42, 95, 0.28), rgba(0, 180, 255, 0.28));
+      border: 1px solid rgba(255, 255, 255, 0.24);
+    }
+
+    .search-input {
+      flex: 1;
+      min-width: 220px;
+      max-width: 340px;
+      padding: 9px 13px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(5, 8, 18, 0.85);
+      color: var(--text);
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .search-input:focus {
+      border-color: var(--cyan);
+    }
+
+    /* 44 Scripts Grid */
+    .scripts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(195px, 1fr));
+      gap: 9px;
+      max-height: 230px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .script-item {
+      text-align: left;
+      padding: 9px 11px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(8, 12, 24, 0.82);
+      color: var(--text);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.14s ease, border-color 0.14s ease, background 0.14s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .script-item:hover {
+      border-color: var(--blue);
+      transform: translateY(-1px);
+    }
+
+    .script-item.active {
+      background: linear-gradient(90deg, rgba(255, 42, 95, 0.35), rgba(0, 180, 255, 0.35));
+      border-color: var(--cyan);
+      color: #fff;
+    }
+
+    .script-box-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .script-box-header h2 {
+      font-size: 1.08rem;
+      color: var(--cyan);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    label {
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: var(--card-solid);
+      color: var(--text);
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--cyan);
+    }
+
+    pre.script-preview {
+      background: rgba(4, 7, 15, 0.92);
+      border: 1px solid rgba(0, 245, 212, 0.25);
+      border-radius: 12px;
+      padding: 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #e8f1ff;
+      white-space: pre-wrap;
+      word-break: break-word;
+      margin-bottom: 12px;
+    }
+
+    textarea.report-editor {
+      min-height: 135px;
+      resize: vertical;
+      line-height: 1.45;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      border-radius: 10px;
+      padding: 10px 15px;
+      font-weight: 800;
+      font-size: 0.88rem;
+      transition: transform 0.14s ease;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .btn-apply {
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      color: #041018;
+    }
+
+    .btn-email {
+      background: linear-gradient(90deg, var(--red), #ff7b00);
+      color: #fff;
+    }
+
+    .btn-copy {
+      background: rgba(255, 255, 255, 0.12);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+
+    .status {
+      margin-top: 10px;
+      font-size: 0.84rem;
+      color: var(--yellow);
+      min-height: 20px;
+    }
+
+    /* WhatsApp Channel Banner */
+    .wa-banner {
+      background: linear-gradient(90deg, rgba(0, 230, 118, 0.16), rgba(10, 14, 28, 0.9), rgba(0, 180, 255, 0.18));
+      border: 1px solid rgba(0, 230, 118, 0.35);
+      border-radius: 16px;
+      padding: 16px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      backdrop-filter: blur(12px);
+    }
+
+    .wa-text strong {
+      display: block;
+      font-size: 1rem;
+      color: #fff;
+      margin-bottom: 3px;
+    }
+
+    .wa-text span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .wa-btn {
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 0.86rem;
+      background: var(--green);
+      color: #05160c;
+    }
+
+    footer {
+      text-align: center;
+      padding: 12px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      color: var(--muted);
+      background: rgba(8, 12, 24, 0.82);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-canvas" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+    <div class="orb orb-5"></div>
+  </div>
+
+  <div class="wrapper">
+    <header>
+      <div class="brand-box">
+        <div class="logo-badge">MF</div>
+        <h1>MALIK FIAZ ALL SCRIPTS</h1>
+      </div>
+      <div class="edition-tag">SCRIPT LIBRARY • RED &amp; BLUE EDITION</div>
+    </header>
+
+    <section class="panel">
+      <div class="top-bar">
+        <div class="counter-pill">44 SCRIPTS AVAILABLE</div>
+        <input id="searchBox" class="search-input" type="text" placeholder="Search script or banning-process..." />
+      </div>
+      <div id="scriptsGrid" class="scripts-grid"></div>
+    </section>
+
+    <section class="panel">
+      <div class="script-box-header">
+        <h2 id="activeTitle">Script: mr-alone-banning-process</h2>
+        <span id="activeSlug" class="edition-tag">x=mr-alone-banning-process</span>
+      </div>
+
+      <pre id="scriptPreview" class="script-preview"></pre>
+
+      <div class="grid-2">
+        <div class="field">
+          <label for="targetInput">Target Link / Number / Username</label>
+          <input id="targetInput" type="text" placeholder="Enter target link, number, or @username" />
+        </div>
+        <div class="field">
+          <label for="emailToInput">Report Email Address (Recipient)</label>
+          <input id="emailToInput" type="email" value="support@support.whatsapp.com" placeholder="support@example.com" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="emailSubjectInput">Report Email Subject</label>
+        <input id="emailSubjectInput" type="text" />
+      </div>
+
+      <div class="field">
+        <label for="reportTextArea">Report / Banning Process Text (Editable)</label>
+        <textarea id="reportTextArea" class="report-editor"></textarea>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" class="btn-apply" id="applyTargetBtn">Apply Target to Report</button>
+        <button type="button" class="btn-email" id="sendEmailBtn">Send Report via Email</button>
+        <button type="button" class="btn-copy" id="copyBtn">Copy Script / Report</button>
+      </div>
+
+      <div id="statusMsg" class="status"></div>
+    </section>
+
+    <section class="wa-banner" aria-label="WhatsApp channel invitation">
+      <div class="wa-text">
+        <strong>JOIN OUR WHATSAPP CHANNEL</strong>
+        <span>Follow our channel for more scripts, updates and new releases by Malik Fiaz.</span>
+      </div>
+      <a class="wa-btn" href="https://whatsapp.com/channel/0029VbALM7n6xCSTtuXdmb3O" rel="noopener noreferrer" target="_blank">FOLLOW CHANNEL</a>
+    </section>
+
+    <footer>DEVELOPED BY MALIK FIAZ</footer>
+  </div>
+
+  <script>
+    const scriptSlugs = [
+      "mr-alone-banning-process",
+      "whatsapp-report-process",
+      "link-ban-format-v1",
+      "link-ban-format-v2",
+      "spam-link-report-template",
+      "phishing-link-notice",
+      "abusive-channel-report",
+      "fake-account-report-flow",
+      "harassment-report-draft",
+      "malicious-url-review",
+      "group-abuse-report-step",
+      "scam-link-complaint",
+      "copyright-claim-template",
+      "impersonation-notice",
+      "tos-violation-summary",
+      "bulk-spam-complaint",
+      "unsafe-redirect-report",
+      "policy-breach-checklist",
+      "evidence-collection-guide",
+      "appeal-and-report-note",
+      "telegram-link-report",
+      "instagram-link-report",
+      "tiktok-link-report",
+      "facebook-link-report",
+      "discord-invite-report",
+      "youtube-url-report",
+      "short-url-abuse-report",
+      "malware-link-notice",
+      "fraud-link-complaint",
+      "repeat-offender-log",
+      "moderation-ticket-draft",
+      "escalation-note-v1",
+      "escalation-note-v2",
+      "safety-team-format",
+      "abuse-desk-summary",
+      "link-audit-template",
+      "case-reference-builder",
+      "community-rules-check",
+      "incident-timeline-note",
+      "follow-up-report-draft",
+      "custom-ban-process-1",
+      "custom-ban-process-2",
+      "custom-ban-process-3",
+      "custom-ban-process-4"
+    ];
+
+    const scriptsGridEl = document.getElementById("scriptsGrid");
+    const searchBoxEl = document.getElementById("searchBox");
+    const activeTitleEl = document.getElementById("activeTitle");
+    const activeSlugEl = document.getElementById("activeSlug");
+    const scriptPreviewEl = document.getElementById("scriptPreview");
+    const targetInputEl = document.getElementById("targetInput");
+    const emailToInputEl = document.getElementById("emailToInput");
+    const emailSubjectInputEl = document.getElementById("emailSubjectInput");
+    const reportTextAreaEl = document.getElementById("reportTextArea");
+    const statusMsgEl = document.getElementById("statusMsg");
+
+    let selectedSlug = scriptSlugs[0];
+
+    function buildTemplateContent(slug, targetVal) {
+      const target = targetVal.trim() || "[Paste Target Link / Number / Username]";
+      const scriptCode =
+`[MALIK FIAZ SCRIPT MODULE: ${slug}]
+Mode: Link / Account Banning & Report Process
+Target: ${target}
+Steps:
+  1. Verify target link/account and gather exact violation details.
+  2. Prepare structured abuse/policy report with target reference.
+  3. Submit report via official support email or in-app reporting flow.`;
+
+      const emailBody =
+`Hello Support & Moderation Team,
+
+I am submitting a report regarding the following target link/account under script module "${slug}".
+
+Target: ${target}
+Module: ${slug}
+Details: Please review the target for policy/terms violations and take appropriate action.
+
+Submitted by: Malik Fiaz`;
+
+      return { scriptCode, emailBody };
+    }
+
+    function selectScript(slug) {
+      selectedSlug = slug;
+      activeTitleEl.textContent = `Script: ${slug}`;
+      activeSlugEl.textContent = `x=${slug}`;
+      emailSubjectInputEl.value = `Report (${slug}) — ${targetInputEl.value.trim() || "Target Review"}`;
+
+      const { scriptCode, emailBody } = buildTemplateContent(slug, targetInputEl.value);
+      scriptPreviewEl.textContent = scriptCode;
+      reportTextAreaEl.value = emailBody;
+
+      document.querySelectorAll(".script-item").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.slug === slug);
+      });
+    }
+
+    function renderList(filterText = "") {
+      const q = filterText.trim().toLowerCase();
+      scriptsGridEl.innerHTML = "";
+
+      const filtered = scriptSlugs.filter((s) => s.toLowerCase().includes(q));
+      filtered.forEach((slug, idx) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "script-item" + (slug === selectedSlug ? " active" : "");
+        btn.dataset.slug = slug;
+        btn.textContent = `${idx + 1}. ${slug}`;
+        btn.title = slug;
+        btn.addEventListener("click", () => {
+          selectScript(slug);
+          statusMsgEl.textContent = `Loaded ${slug}`;
+        });
+        scriptsGridEl.appendChild(btn);
+      });
+    }
+
+    searchBoxEl.addEventListener("input", (e) => renderList(e.target.value));
+
+    document.getElementById("applyTargetBtn").addEventListener("click", () => {
+      selectScript(selectedSlug);
+      statusMsgEl.textContent = "Target applied to script preview and email report.";
+    });
+
+    document.getElementById("sendEmailBtn").addEventListener("click", () => {
+      const to = emailToInputEl.value.trim();
+      if (!to) {
+        statusMsgEl.textContent = "Pehle recipient email address likhein.";
+        return;
+      }
+      const subject = encodeURIComponent(emailSubjectInputEl.value.trim() || `Report — ${selectedSlug}`);
+      const body = encodeURIComponent(reportTextAreaEl.value.trim());
+      window.location.href = `mailto:${encodeURIComponent(to)}?subject=${subject}&body=${body}`;
+      statusMsgEl.textContent = "Email app open ho rahi hai...";
+    });
+
+    document.getElementById("copyBtn").addEventListener("click", async () => {
+      const combined = `${scriptPreviewEl.textContent}\n\n--- REPORT TEXT ---\n${reportTextAreaEl.value}`;
+      try {
+        await navigator.clipboard.writeText(combined);
+        statusMsgEl.textContent = "Script aur report clipboard mein copy ho gaye hain.";
+      } catch {
+        statusMsgEl.textContent = "Text select kar ke copy karein.";
+      }
+    });
+
+    renderList();
+    selectScript(selectedSlug);
+  </script>
+</body>
+</html>
